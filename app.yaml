@@ -1,5 +1,10 @@
-handlers:
-- url: /generate
-  static_dir: static/whatever
-  http_headers:
-    Access-Control-Allow-Origin: http://localhost:8000
+runtime: nodejs10
+
+env_variables:
+CLIENT_ID = 322645813229-p6a4rvdeo29376bpg192hitjtgjrcn2g.apps.googleusercontent.com
+CLIENT_SECRET = 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
+FACEBOOK_ID = 1202429183803005
+FACEBOOK_SECRET = c838f1f1d0c015d0eede3667f586e550
+DB_ID = law_assistant
+DB_SECRET = UB31FgBAHAfwxl65
+SECRET = sjfnsjfnsifnsfns12mkdmakdnaj
