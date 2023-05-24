@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ChatGPT</title>
+  <style>
+    /* Estilos CSS para o chat */
+    .chat-container {
+      width: 400px;
+      height: 500px;
+      border: 1px solid #ccc;
+      overflow-y: scroll;
+      padding: 10px;
+    }
+    .user-message {
+      color: blue;
+    }
+    .assistant-message {
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <div class="chat-container" id="chatContainer"></div>
+  <input type="text" id="userInput" placeholder="Digite sua mensagem" />
+  <button onclick="sendMessage()">Enviar</button>
+
+  <script>
+    // Função para enviar a mensagem do usuário
+    function sendMessage() {
+      var userInput = document.getElementById("userInput");
+      var userMessage = userInput.value;
+      userInput.value = ""; // Limpa o campo de entrada
+
+      displayMessage(userMessage, "user-message"); // Exibe a mensagem do usuário no chat
+
+      // Envia a mensagem do usuário para o servidor e obtém a resposta do ChatGPT
+      fetch("/assistente", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ message: userMessage })
+      })
+      .then(response => response.json())
+      .then(data => {
+        var assistantMessage = data.message;
+        displayMessage(assistantMessage, "assistant-message"); // Exibe a resposta do ChatGPT no chat
+      })
+      .catch(error => {
+        console.error("Erro ao enviar mensagem:", error);
+      });
+    }
+
+    // Função para exibir uma mensagem no chat
+    function displayMessage(message, className) {
+      var chatContainer = document.getElementById("chatContainer");
+      var messageElement = document.createElement("div");
+      messageElement.classList.add(className);
+      messageElement.innerText = message;
+      chatContainer.appendChild(messageElement);
+
+      // Rolagem automática para exibir a mensagem mais recente
+      chatContainer.scrollTop = chatContainer.scrollHeight;
+    }
+  </script>
+</body>
+</html>

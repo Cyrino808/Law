@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Página de Login</title>
+	<link rel="stylesheet" type="text/css" href="/css/main.css">
+</head>
+<body>
+	<div class="container">
+		<h2 class="title">Login</h2>
+		<form action="/login" method="post">
+
+			<label for="email">E-mail</label>
+			<input type="email" id="email" name="email" value="" placeholder="xxxx@xxxx.com" maxlength="80">
+
+			<label for="password">Senha</label>
+			<input type="password" id="password" name="password" value="" maxlength="80">
+
+			<button id="logar" name="logar" type="submit">Logar</button> 
+			<button id="google" name="google" type="submit">Google</button> 
+			<button id="facebook" name="facebook" type="submit">Facebook</button> 
+			<button id="registro" name="registro" type="submit">Registrar</button> 
+		
+	</div>
+</form>
+	<script type="text/javascript" src="/js/script.js"></script>
+	<script>
+		let teste ="<%= teste  %>" 
+		if(teste != 0){
+			alert(teste)
+		}
+	</script>
+</body>
+</html>
