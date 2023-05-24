@@ -1,4 +1,9 @@
-runtime: nodejs20
+runtime: nodejs
+env: flex
+
+runtime_config:
+operating_system: "ubuntu22"
+runtime_version: 19
 
 env_variables:
   CLIENT_ID: "322645813229-p6a4rvdeo29376bpg192hitjtgjrcn2g.apps.googleusercontent.com"
@@ -8,6 +13,4 @@ env_variables:
   DB_ID : "law_assistant"
   DB_SECRET: "UB31FgBAHAfwxl65"
   SECRET: "sjfnsjfnsifnsfns12mkdmakdnaj"
-  
-  runtime_config:
-  operating_system: ubuntu22
+
