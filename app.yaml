@@ -1,0 +1,5 @@
+handlers:
+- url: /generate
+  static_dir: static/whatever
+  http_headers:
+    Access-Control-Allow-Origin: http://localhost:3000
